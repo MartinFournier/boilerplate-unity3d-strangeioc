@@ -3,7 +3,6 @@ using strange.extensions.context.api;
 using strange.extensions.context.impl;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
-using Game.Controllers;
 
 namespace Game
 {
@@ -40,30 +39,12 @@ namespace Game
 
         protected override void mapBindings()
         {
-            //Commands & Signals
-            commandBinder.Bind<GameStartSignal>().To<GameStartCommand>();
-
-            //Singleton signals
-            //injectionBinder.Bind<PlayerMovedSignal>().ToSingleton();
-
-            //Models
-            //injectionBinder.Bind<IPlayer>().To<Player>().ToSingleton();
-
-            //Mediation
-            //mediationBinder.Bind<LevelSceneView>().To<LevelSceneMediator>();
-
-            //Services
-            //injectionBinder.Bind<ILevelGenerator>().To<SpecificLevelGenerator>();
+            GameBindings.MapBindings(this);
         }
 
         protected override void postBindings()
         {
-            var context = (contextView as GameObject);
-            var camera = context.GetComponentInChildren<UnityEngine.Camera>();
-            injectionBinder.Bind<UnityEngine.Camera>().ToValue(camera);
-
-            var configs = context.GetComponentInChildren<GameConfigs>();
-            injectionBinder.Bind<GameConfigs>().ToValue(configs);
+            GameBindings.PostBindings(this);
         }
     }
 }
