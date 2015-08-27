@@ -29,6 +29,8 @@ sysinfo.txt
 #NuGet
 .3rd/
 .packages/
+.libs/
 Assets/Packages/
 Assets/Vendor/
+Assets/Libraries/
 .nuget/
