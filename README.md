@@ -1,4 +1,5 @@
-#syscrawl
+#Unity3d boilerplate with StrangeIoC
+Basic Unity3d project layout with dependencies using Nuget & bower.
 
 1. Install bower
 ```sh
